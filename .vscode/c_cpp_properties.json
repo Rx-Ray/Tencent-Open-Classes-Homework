@@ -1,0 +1,20 @@
+{
+    "configurations": [
+      {
+        "name": "Unreal Engine",
+        "includePath": [
+          "F:/UE/UnrealEngine-release/Engine/Source/**",
+          "G:/UE/B/Source/**",
+          "F:/UE/UnrealEngine-release/Engine/Plugins/**"
+        ],
+        "defines": [
+          "WIN32", "_DEBUG", "UE_EDITOR", "UNICODE", "_UNICODE"
+        ],
+        "compilerPath": "F:/Microsoft/VisualStudio2022/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe",
+        "cStandard": "c17",
+        "cppStandard": "c++20",
+        "intelliSenseMode": "windows-msvc-x64"
+      }
+    ],
+    "version": 4
+  }
