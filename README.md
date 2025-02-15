@@ -57,3 +57,11 @@ NPC B正在来回跑动以及其行为树逻辑：
 
 ## Niagara
 ### 借助插件实现2D交互水面
+
+## 渲染-后处理
+### 利用后处理为物体添加排线细节
+
+### 利用环境中的法线方向进行计算对所有物体进行描边
+添加与未添加上述两种处理的效果对比：
+![before](/ReadmeImage/OriginSight.png)
+![after](/ReadmeImage/PostProcessSight.png)
