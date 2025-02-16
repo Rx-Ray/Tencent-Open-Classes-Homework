@@ -5,6 +5,9 @@
 #include "Components/SphereComponent.h"
 #include <Kismet/KismetSystemLibrary.h>
 
+#include "BCharacter.h"
+#include "NPCCharacter.h"
+
 ABProjectile::ABProjectile() 
 {
 	// Use a sphere as a simple collision representation
@@ -40,6 +43,24 @@ void ABProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrim
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
 		UFunction* Function = OtherActor->FindFunction(FName("HittedByBullet"));
 		if (Function) OtherActor->ProcessEvent(Function, 0);
+		Destroy();
+	}
+	else if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && Cast<ABCharacter>(OtherActor))
+	{
+		UFunction* Function = OtherActor->FindFunction(FName("GetHurt"));
+	    if (Function)
+	    {
+	    	OtherActor->ProcessEvent(Function, 0);
+	    }
+        Destroy();
+	}
+	else if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && Cast<ANPCCharacter>(OtherActor))
+	{
+		UFunction* Function = OtherActor->FindFunction(FName("GetHurt"));
+		if (Function)
+		{
+			OtherActor->ProcessEvent(Function, 0);
+		}
 		Destroy();
 	}
 }
